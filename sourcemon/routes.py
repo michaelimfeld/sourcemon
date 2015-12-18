@@ -41,3 +41,13 @@ def servers():
 
         data.append(server_data)
     return json.dumps(data)
+
+@api.route("/api/servers", methods=["POST"])
+def addserver():
+    """
+        Adds a server to database if not exists
+    """
+    data = json.loads(request.data)
+    ip_addr = IPModel.create(address=data["ip_addr"])
+    ServerModel.create(ip=ip_addr, port=data["port"])
+    return 'OK'

@@ -9,8 +9,17 @@
             return deferred.promise;
         };
 
+        var addServer = function(ip_addr, port) {
+            var data = {
+                'ip_addr': ip_addr,
+                'port': port
+            };
+            return $http.post('/api/servers', data);
+        };
+
         return {
-            getServers: getServers
+            getServers: getServers,
+            addServer: addServer
         };
     };
 

@@ -12,7 +12,7 @@
                         servers = dataService.getServers();
                         servers.then(servers)
                         {
-                                return servers;
+                            return servers;
                         }
                     }
                 }
