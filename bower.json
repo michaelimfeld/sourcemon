@@ -1,0 +1,23 @@
+{
+  "name": "sourcemon",
+  "homepage": "https://github.com/michaelimfeld/sourcemon",
+  "authors": [
+    "Michael Imfeld <michaelimfeld@crooked.ch>"
+  ],
+  "description": "Web-based monitoring tool for valve source servers.",
+  "main": "sourcemon/main.py",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8"
+  }
+}

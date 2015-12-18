@@ -1,0 +1,23 @@
+<h1>Overview</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Server Name</th>
+            <th>IP</th>
+            <th>Port</th>
+            <th>Game</th>
+            <th>Map</th>
+            <th>Players</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="server in overview.servers">
+            <td>{{ server.server_name }}</td>
+            <td>{{ server.ip_addr }}</td>
+            <td>{{ server.port }}</td>
+            <td>{{ server.game }}</td>
+            <td>{{ server.map }}</td>
+            <td>{{ server.player_count }}/{{ server.max_players }}</td>
+        </tr>
+    </tbody>
+</table>
