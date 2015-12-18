@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="sourcemon">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Web-based monitoring tool for valve source servers.">
+    <meta name="author" content="Michael Imfeld">
+
+    <title>sourcemon - overview</title>
+
+    <link href="static/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="navbar navbar-default" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+            <a href="/#/" class="navbar-brand">sourcemon</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+              <li>
+                <a href="#/">Overview</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div ng-view></div>
+    </div>
+
+    <!------------------ Java Script Section ------------------>
+
+    <!-- jQuery -->
+    <script src="static/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- AngularJS -->
+    <script src="static/bower_components/angular/angular.min.js"></script>
+    <script src="static/bower_components/angular-route/angular-route.min.js"></script>
+
+    <!-- AngularJS App -->
+    <script src="static/apps/sourcemon/module.js"></script>
+    <script src="static/apps/sourcemon/js/controllers/overview.js"></script>
+    <script src="static/apps/sourcemon/js/services/data.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

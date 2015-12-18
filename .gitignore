@@ -55,3 +55,8 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# bower components
+sourcemon/static/bower_components/
+
+
