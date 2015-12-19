@@ -14,7 +14,11 @@
                 'ip_addr': ip_addr,
                 'port': port
             };
-            return $http.post('/api/servers', data);
+            return $http.post('/api/server/add', data);
+        };
+
+        var removeServer = function(id) {
+            return $http.post('/api/server/remove/' + id);
         };
 
         var getServer = function(id) {
@@ -28,8 +32,9 @@
 
         return {
             getServers: getServers,
+            getServer: getServer,
             addServer: addServer,
-            getServer: getServer
+            removeServer: removeServer
         };
     };
 

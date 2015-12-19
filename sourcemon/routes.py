@@ -4,9 +4,10 @@
 """
 
 import json
-import valve.source.a2s
+from valve.source.a2s import NoResponseError, ServerQuerier
 from valve.source.messages import BrokenMessageError
 from flask import Blueprint, send_from_directory, request
+
 from sourcemon.model.servermodel import ServerModel
 from sourcemon.model.ipmodel import IPModel
 
@@ -32,9 +33,9 @@ def servers():
 
         online = True
         try:
-            querier = valve.source.a2s.ServerQuerier(server_address, 1)
+            querier = ServerQuerier(server_address, 1)
             info = querier.get_info()
-        except valve.source.a2s.NoResponseError:
+        except NoResponseError:
             online = False
 
         server_data = {
@@ -50,14 +51,22 @@ def servers():
         data.append(server_data)
     return json.dumps(data)
 
-@api.route("/api/servers", methods=["POST"])
-def addserver():
+@api.route("/api/server/add", methods=["POST"])
+def add_server():
     """
         Adds a server to database if not exists
     """
     data = json.loads(request.data)
-    ip_addr = IPModel.create(address=data["ip_addr"])
+    ip_addr = IPModel.get_or_create(address=data["ip_addr"])[0]
     ServerModel.create(ip=ip_addr, port=data["port"])
+    return 'OK'
+
+@api.route("/api/server/remove/<server_id>", methods=["POST"])
+def remove_server(server_id):
+    """
+        Removes a server from the database
+    """
+    ServerModel.delete().where(ServerModel.id == server_id).execute()
     return 'OK'
 
 @api.route("/api/server/<server_id>", methods=["GET"])
@@ -70,13 +79,22 @@ def server(server_id):
     db_server = db_server.where(ServerModel.id == server_id).get()
     server_address = (db_server.ip.address, db_server.port)
 
-    querier = valve.source.a2s.ServerQuerier(server_address, 1)
-    info = querier.get_info()
+    info = {}
+    try:
+        querier = ServerQuerier(server_address, 1)
+        info = querier.get_info()
+    except NoResponseError:
+        pass
+
+    players = []
     try:
         players = querier.get_players()["players"]
     except BrokenMessageError:
-        players = []
+        pass
+    except NoResponseError:
+        pass
 
+    data["id"] = db_server.id
     for key in info:
         data[key] = str(info[key])
 
