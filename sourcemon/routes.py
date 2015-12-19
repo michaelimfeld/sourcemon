@@ -29,15 +29,21 @@ def servers():
     for server in ServerModel.select().join(IPModel):
         server_address = (server.ip.address, server.port)
 
-        querier = valve.source.a2s.ServerQuerier(server_address)
-        info = querier.get_info()
+        online = True
+        try:
+            querier = valve.source.a2s.ServerQuerier(server_address, 1)
+            info = querier.get_info()
+        except valve.source.a2s.NoResponseError:
+            online = False
 
         server_data = {
             "ip_addr": server.ip.address,
-            "port": server.port
+            "port": server.port,
+            "online": online
         }
-        for key in info:
-            server_data[key] = str(info[key])
+        if online:
+            for key in info:
+                server_data[key] = str(info[key])
 
         data.append(server_data)
     return json.dumps(data)

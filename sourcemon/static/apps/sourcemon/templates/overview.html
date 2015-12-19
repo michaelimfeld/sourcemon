@@ -15,28 +15,39 @@
     </thead>
     <tbody>
         <tr ng-repeat="server in overview.servers">
-            <td>{{ server.server_name }}</td>
-            <td>{{ server.ip_addr }}</td>
-            <td>{{ server.port }}</td>
-            <td>{{ server.game }}</td>
-            <td>{{ server.map }}</td>
-            <td>{{ server.player_count }}/{{ server.max_players }}</td>
+            <td>
+                <span class="glyphicon glyphicon-stop" ng-style="server.online ? {color: 'green'}:{color: 'red'}"></span>
+                {{ server.online ? server.server_name : 'OFFLINE' }}
+            </td>
+            <td>{{ server.ip_addr ? server.ip_addr : '-' }}</td>
+            <td>{{ server.port ? server.port : '-' }}</td>
+            <td>{{ server.game ? server.game : '-' }}</td>
+            <td>{{ server.map ? server.map : '-' }}</td>
+            <td>{{ server.player_count ? server.player_count + '/' + server.max_players : '-' }}</td>
         </tr>
     </tbody>
 </table>
 
 <form ng-submit="overview.addServer()">
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">IP Address</span>
-        <input type="text" class="form-control" placeholder="127.0.0.1" aria-describedby="basic-addon1" ng-model="overview.ip_addr" required>
-    </div>
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon2">Port</span>
-        <input type="text" class="form-control" placeholder="27020" aria-describedby="basic-addon2" ng-model="overview.port" required>
-    </div>
-    <div class="btn-group" role="group">
-        <button type="submit" class="btn btn-default">
-            add server
-        </button>
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">IP Address</span>
+                <input type="text" class="form-control" placeholder="127.0.0.1" aria-describedby="basic-addon1" ng-model="overview.ip_addr" required>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon2">Port</span>
+                <input type="text" class="form-control" placeholder="27020" aria-describedby="basic-addon2" ng-model="overview.port" required>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="btn-group" role="group">
+                <button type="submit" class="btn btn-primary">
+                    add
+                </button>
+            </div>
+        </div>
     </div>
 </form>
