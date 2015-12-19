@@ -11,6 +11,7 @@
             <th>Game</th>
             <th>Map</th>
             <th>Players</th>
+            <th>Details</th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +25,11 @@
             <td>{{ server.game ? server.game : '-' }}</td>
             <td>{{ server.map ? server.map : '-' }}</td>
             <td>{{ server.player_count ? server.player_count + '/' + server.max_players : '-' }}</td>
+            <td>
+                <a ng-href="#/server/{{ server.id }}">
+                    <span class="glyphicon glyphicon-list-alt"></span>
+                </a>
+            </td>
         </tr>
     </tbody>
 </table>

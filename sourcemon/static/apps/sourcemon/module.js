@@ -16,6 +16,20 @@
                         }
                     }
                 }
+                })
+            .when('/server/:id', {
+                templateUrl: '/static/apps/sourcemon/templates/server.html',
+                controller: 'ServerController',
+                controllerAs: 'server',
+                resolve: {
+                    server: function(dataService, $route) {
+                        server = dataService.getServer($route.current.params.id);
+                        server.then(server)
+                        {
+                            return server;
+                        }
+                    }
+                }
             })
             .otherwise({redirectTo: '/'});
     });

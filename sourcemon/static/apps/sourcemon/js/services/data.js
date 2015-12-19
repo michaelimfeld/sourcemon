@@ -17,9 +17,19 @@
             return $http.post('/api/servers', data);
         };
 
+        var getServer = function(id) {
+            var deferred = $q.defer();
+            var resp = $http.get('/api/server/' + id)
+                .then(function(response) {
+                    deferred.resolve( response.data );
+                });
+            return deferred.promise;
+        };
+
         return {
             getServers: getServers,
-            addServer: addServer
+            addServer: addServer,
+            getServer: getServer
         };
     };
 
