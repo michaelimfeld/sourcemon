@@ -1,0 +1,4 @@
+#!/bin/sh
+
+chown -R www-data:www-data /var/www/sourcemon
+python /usr/share/sourcemon/setup_db.py

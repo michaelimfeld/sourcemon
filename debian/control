@@ -1,0 +1,14 @@
+Source: sourcemon
+Section: unknown
+Priority: optional
+Maintainer: Michael Imfeld <michaelimfeld@crooked.ch>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: <insert the upstream URL, if relevant>
+#Vcs-Git: git://anonscm.debian.org/collab-maint/sourcemon.git
+#Vcs-Browser: http://anonscm.debian.org/?p=collab-maint/sourcemon.git;a=summary
+
+Package: sourcemon
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Sourcemon is a web-based monitoring tool for valve source servers.
