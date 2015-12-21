@@ -4,7 +4,7 @@
 from peewee import Model, SqliteDatabase
 
 
-DATABASE = SqliteDatabase('/var/sourcemon/sourcemon.db')
+DATABASE = SqliteDatabase('/var/www/sourcemon/sourcemon.db')
 
 class BaseModel(Model):
     """
