@@ -10,5 +10,4 @@ Sourcemon is a web-based monitoring tool for valve source servers. It uses the [
 ## Usage
 
     sudo su www-data -s /bin/bash
-    cd /var/www/sourcemon
-    python main.py
+    sourcemon

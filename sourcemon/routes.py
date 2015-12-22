@@ -3,6 +3,7 @@
     Holds handler functions for web api routes
 """
 
+import os
 import json
 from valve.source.a2s import NoResponseError, ServerQuerier
 from valve.source.messages import BrokenMessageError
@@ -13,14 +14,15 @@ from sourcemon.model.ipmodel import IPModel
 
 api = Blueprint("api", __name__)
 
+STATIC_PATH = "/var/www/sourcemon"
 
 @api.route("/", methods=["GET"])
 def index():
     """
         Returns static index.html
     """
-    return send_from_directory("templates", "index.html")
-
+    path = os.path.join(STATIC_PATH, "templates")
+    return send_from_directory(path, "index.html")
 
 @api.route("/api/servers", methods=["GET"])
 def servers():

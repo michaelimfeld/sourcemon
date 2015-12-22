@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# remove .pyc files
+rm -f /usr/lib/python2.7/dist-packages/sourcemon/*.pyc
+rm -f /usr/lib/python2.7/dist-packages/sourcemon/model/*.pyc
