@@ -1,5 +1,8 @@
 #!/bin/sh
 
+echo "Installing pip dependencies ..."
+pip install -r /usr/share/sourcemon/requirements.txt
+
 chown -R www-data:www-data /var/www/sourcemon
 python /usr/share/sourcemon/setup_db.py
 chmod +x /usr/bin/sourcemon

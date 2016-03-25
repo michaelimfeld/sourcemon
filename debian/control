@@ -10,5 +10,5 @@ Homepage: <insert the upstream URL, if relevant>
 
 Package: sourcemon
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, python-pip
 Description: Sourcemon is a web-based monitoring tool for valve source servers.
