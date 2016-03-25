@@ -31,6 +31,11 @@
                     }
                 }
             })
+            .when('/addserver', {
+                templateUrl: '/static/apps/sourcemon/templates/addserver.html',
+                controller: 'AddServerController',
+                controllerAs: 'ctrl'
+            })
             .otherwise({redirectTo: '/'});
     });
 }());

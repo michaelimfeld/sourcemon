@@ -14,3 +14,12 @@ Sourcemon is a web-based monitoring tool for valve source servers (like CS:GO or
 ## Usage
 
     sudo service sourcemon start
+
+Navigate your browser to localhost:5000 and start adding your servers!
+
+## Debugging
+
+For debugging you can start sourcemon manually:
+
+    sudo su www-data -s /bin/bash
+    sourcemon

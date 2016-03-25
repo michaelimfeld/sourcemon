@@ -34,26 +34,6 @@
     </tbody>
 </table>
 
-<form ng-submit="overview.addServer()">
-    <div class="row">
-        <div class="col-lg-3">
-            <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">IP Address</span>
-                <input type="text" class="form-control" placeholder="127.0.0.1" aria-describedby="basic-addon1" ng-model="overview.ip_addr" required>
-            </div>
-        </div>
-        <div class="col-lg-2">
-            <div class="input-group">
-                <span class="input-group-addon" id="basic-addon2">Port</span>
-                <input type="text" class="form-control" placeholder="27020" aria-describedby="basic-addon2" ng-model="overview.port" required>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="btn-group" role="group">
-                <button type="submit" class="btn btn-primary">
-                    add
-                </button>
-            </div>
-        </div>
-    </div>
-</form>
+<a href="#/addserver" class="btn btn-primary pull-right">
+  <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> Add Server
+</a>

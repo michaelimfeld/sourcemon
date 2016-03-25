@@ -1,0 +1,14 @@
+<form class="col-md-6 col-md-offset-3" ng-submit="ctrl.addServer()" autocomplete="on">
+    <legend>Add Server</legend>
+    <p>Add a valve source server to be monitored.</p>
+    <div class="form-group">
+        <label for="inputIP">IP Address</label>
+        <input type="text" class="form-control" placeholder="127.0.0.1" id="inputIP" ng-model="ctrl.ip_addr" required>
+    </div>
+    <div class="form-group">
+        <label for="inputPort">Port</label>
+        <input type="text" class="form-control" placeholder="27020" id="inputPort" ng-model="ctrl.port" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+    <a href="#/overview" class="cancel-btn">Cancel</a>
+</form>
