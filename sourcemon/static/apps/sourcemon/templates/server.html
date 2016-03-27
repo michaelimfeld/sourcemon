@@ -1,31 +1,37 @@
 <h1>{{ server.data.server_name }}</h1>
-<table class="table">
-    <tbody>
-        <tr ng-repeat="(key, value) in server.data" ng-if="key != 'players'">
-            <td class="col-lg-2">
-                <strong>{{ key }}</strong>
-            </td>
-            <td class="col-lg-10">{{ value }}</td>
-        </tr>
-    </tbody>
-</table>
-<h2>Players {{ server.data.player_count }}/{{ server.data.max_players }}</h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Duration</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="player in server.players">
-            <td class="col-lg-2">
-                {{ player.name }}
-            </td>
-            <td class="col-lg-10">{{ server.getDuration(player.duration) }} mins</td>
-        </tr>
-    </tbody>
-</table>
+<div class="col-md-6">
+    <h2>Details</h2>
+    <table class="table">
+        <tbody>
+            <tr ng-repeat="(key, value) in server.data" ng-if="key != 'players'">
+                <td class="col-lg-2">
+                    <strong>{{ key }}</strong>
+                </td>
+                <td class="col-lg-10">{{ value }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-md-6">
+    <h2>Players {{ server.data.player_count }}/{{ server.data.max_players }}</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="player in server.players">
+                <td class="col-lg-8">
+                    {{ player.name }}
+                </td>
+                <td class="col-lg-4">{{ server.getDuration(player.duration) }} mins</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 <div class="btn-group btn-group-justified" role="group">
     <div class="btn-group" role="group">
         <button type="button" class="btn btn-danger" ng-click="server.remove()">Remove this server</button>
